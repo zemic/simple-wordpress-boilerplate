@@ -1,0 +1,47 @@
+version: 0.0
+os: linux
+files:
+  - source: /
+    destination: /var/www/vhosts/domain.com
+permissions:
+  - object: /var/www/vhosts/domain.com/public_html
+    pattern: "**"
+    owner: root
+    group: root
+    mode: 755
+    type:
+      - directory
+  - object: /var/www/vhosts/domain.com/public_html
+    pattern: "**"
+    except: [wp-config.php]
+    owner: root
+    group: root
+    mode: 644
+    type:
+      - file
+  - object: /var/www/vhosts/domain.com/_deploy/scripts
+    pattern: "*.sh"
+    owner: root
+    group: root
+    mode: 755
+    type:
+      - file
+  - object: /var/www/vhosts/domain.com/_deploy/scripts/alb
+    pattern: "*.sh"
+    owner: root
+    group: root
+    mode: 755
+    type:
+      - file
+  - object: /var/www/vhosts/domain.com/_deploy/scripts/elb-classic
+    pattern: "*.sh"
+    owner: root
+    group: root
+    mode: 755
+    type:
+      - file
+hooks:
+  BeforeInstall:
+    - location: _deploy/scripts/beforeInstall.sh
+  AfterInstall:
+    - location: _deploy/scripts/afterInstall.sh
