@@ -1,0 +1,60 @@
+//-----------------------------------------------------------------------//
+// There's a Mixin for that...
+//
+// This file contains a number of useful Sass mixin's.
+//-----------------------------------------------------------------------//
+@import "mixins/clearfix";
+@import "mixins/center-align";
+@import "mixins/font-face";
+@import "mixins/font-scale";
+@import "mixins/font-size";
+@import "mixins/keyframes";
+@import "mixins/line-height";
+@import "mixins/linear-gradient";
+@import "mixins/link";
+@import "mixins/opacity";
+@import "mixins/placeholder";
+@import "mixins/radial-gradient";
+@import "mixins/tooltip";
+@import "mixins/transition";
+@import "mixins/triangle";
+@import "mixins/vertical-align";
+@import "mixins/wrapper";
+
+//-----------------------------------------------------------------------//
+// CENTER-ALIGN BLOCK ELEMENT
+// Quickly center any element within its parent. Requires width or
+// max-width to be set.
+// @include center-block;
+//-----------------------------------------------------------------------//
+@mixin center-block {
+    display:          block;
+    margin-left:      auto;
+    margin-right:     auto;
+}
+
+//-----------------------------------------------------------------------//
+// TEXT OVERFLOW
+// An easy way to truncate text with an ellipsis. Requires the element to
+// be block or inline-block.
+// @include text-truncate;
+//-----------------------------------------------------------------------//
+@mixin text-truncate {
+    overflow:         hidden;
+    text-overflow:    ellipsis;
+    white-space:      nowrap;
+}
+
+//-----------------------------------------------------------------------//
+// CSS3 GRADIENTS
+// Be careful with these since they can really slow down your CSS.
+// @include css-gradient( #dfdfdf, #f8f8f8 );
+//-----------------------------------------------------------------------//
+@mixin css-gradient($from: #dfdfdf, $to: #f8f8f8) {
+    background-color: $to;
+    background-image: -webkit-gradient(linear, left top, left bottom, from($from), to($to));
+    background-image: -webkit-linear-gradient(top, $from, $to);
+    background-image: -moz-linear-gradient(top, $from, $to);
+    background-image: -o-linear-gradient(top, $from, $to);
+    background-image: linear-gradient(to bottom, $from, $to);
+}

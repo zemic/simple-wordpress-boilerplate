@@ -1,0 +1,10 @@
+@mixin wrapper($spacing-type, $spacing-value-top: false, $spacing-value-right: false, $spacing-value-bottom: false, $spacing-value-left: false ) {
+    @include clearfix;
+    position: relative;
+
+    @if ($spacing-value-bottom) { #{$spacing-type}-bottom: $spacing-value-bottom; }
+    @if ($spacing-value-left) { #{$spacing-type}-left: $spacing-value-left; }
+    @if ($spacing-value-right) { #{$spacing-type}-right: $spacing-value-right; }
+    @if ($spacing-value-top) { #{$spacing-type}-top: $spacing-value-top; }
+
+}

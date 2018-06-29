@@ -1,0 +1,179 @@
+//-----------------------------------------------------------------------//
+// SASS VARIABLES
+//
+// This file contains all Sass variables used in our project.
+//-----------------------------------------------------------------------//
+
+//-----------------------------------------------------------------------//
+// BREAKPOINTS
+// Breakpoints are called using Breakpoint-Sass extension.
+// Name your breakpoints in a way that creates a ubiquitous language
+// across team members. It will improve communication between
+// stakeholders, designers, developers, and testers.
+// http://breakpoint-sass.com/
+// https://github.com/at-import/breakpoint
+//-----------------------------------------------------------------------//
+@include breakpoint-set('to ems', value);
+
+// Base breakpoints
+$breakpoints: (
+    mobile-s: 320px,
+    mobile-m: 375px,
+    mobile-l: 414px,
+    phablet: 667px,
+    tablet: 768px,
+    tablet-l: 840px,
+    laptop-xs: 960px,
+    laptop-s: 1000px,
+    laptop-m: 1240px,
+    laptop-l: 1440px,
+    laptop-xl: 1600px,
+);
+
+// Breakpoints-Sass extension breakpoints
+@include add-breakpoint( mobile-s,  (map-get($breakpoints, mobile-s),  'no-query' true) );
+@include add-breakpoint( mobile-m,  (map-get($breakpoints, mobile-m),  'no-query' true) );
+@include add-breakpoint( mobile-l,  (map-get($breakpoints, mobile-l),  'no-query' true) );
+@include add-breakpoint( phablet,   (map-get($breakpoints, phablet),   'no-query' true) );
+@include add-breakpoint( tablet,    (map-get($breakpoints, tablet),    'no-query' true) );
+@include add-breakpoint( tablet-l,  (map-get($breakpoints, tablet-l),  'no-query' true) );
+@include add-breakpoint( laptop-xs, (map-get($breakpoints, laptop-xs), 'no-query' true) );
+@include add-breakpoint( laptop-s,  (map-get($breakpoints, laptop-s),  'no-query' true) );
+@include add-breakpoint( laptop-m,  (map-get($breakpoints, laptop-m),  'no-query' true) );
+@include add-breakpoint( laptop-l,  (map-get($breakpoints, laptop-l),  'no-query' true) );
+@include add-breakpoint( laptop-xl, (map-get($breakpoints, laptop-xl), 'no-query' true) );
+@include add-breakpoint( touch,     (pointer coarse,                   'no-query' '.touch') );
+@include add-breakpoint( retina,    'min-resolution 1.5dppx' );
+
+// Tweak breakpoints
+//@include add-breakpoint( <name>, (<px-size>, 'no-query' true) );
+
+//-----------------------------------------------------------------------//
+// Z-INDEX MAPPING
+// All z-index mappings should be created here.
+//-----------------------------------------------------------------------//
+$z-index: (
+    viewport: (
+        base: 0, // higher than zero so we can hide stuff below it
+    ),
+);
+
+//-----------------------------------------------------------------------//
+// COLORS
+// Our base color is the default color used when calling the key. We call
+// the colors using the Sass function get-color();
+// Variables can be HEX or RGB values (not RGBA) if using the mixin.
+//-----------------------------------------------------------------------//
+$site-colors: (
+    alert: (
+        error: #fbe3e4,      // alert red color
+        info: #d5edf8,       // alert blue color
+        notice: #ebe16f,     // alert yellow color
+        success: #e6efc2,    // alert green color
+    ),
+    social: (
+        facebook: #3b5998,
+        googleplus: #dd4b39,
+        instagram: #517fa4,
+        linkedin: #007bb6,
+        pinterest: #cb2027,
+        twitter: #00aced,
+        youtube: #bb0000,
+    ),
+    body: (
+        background: #fff,    // default page background color
+        color: #000,         // default page font color
+        highlight: #b3d4fc,  // default text highlight color
+    ),
+    link: (
+        active: #000,         // active state
+        base: #000,           // default link color
+        hover: #000,          // hover state
+        visited: #000,        // visited state
+    ),
+    primary: ( // brand primary colors
+        base: #000,
+        black: #000,
+        white: #fff,
+    ),
+    secondary: ( // brand secondary colors
+        base: #000,
+    ),
+);
+
+//-----------------------------------------------------------------------//
+// FONT DEFAULTS
+//-----------------------------------------------------------------------//
+
+// Weights
+$hairline-weight: 100;
+$thin-weight: 200;
+$light-weight: 300;
+$normal-weight: 400;
+$medium-weight: 500;
+$semibold-weight: 600;
+$bold-weight: 700;
+$xbold-weight: 800;
+$black-weight: 900;
+
+// Weight Synonyms
+$regular-weight: $normal-weight;
+$book-weight: $light-weight;
+$xlight-weight: $hairline-weight;
+$ultralight-weight: $hairline-weight;
+$heavy-weight: $xbold-weight;
+
+// Family
+$font-default: sans-serif;
+
+//-----------------------------------------------------------------------//
+// SITE WIDE BODY SELECTOR DEFAULTS
+//-----------------------------------------------------------------------//
+$body-font-family: $font-default;
+$body-font-size: 1rem;
+$body-font-weight: $regular-weight;
+$body-line-height: 1.5;
+
+//-----------------------------------------------------------------------//
+// TRANSITION DEFAULTS
+//-----------------------------------------------------------------------//
+$default-transition-property: all;
+$default-transition-duration: .5s;
+$default-transition-timing-function: ease-in-out;
+$default-transition-delay: 0s;
+
+//-----------------------------------------------------------------------//
+// WRAPPER SPACING
+//-----------------------------------------------------------------------//
+$spacing-xsmall: 20px;
+$spacing-small: 40px;
+$spacing-medium: 60px;
+$spacing-large: 80px;
+$spacing-xlarge: 100px;
+
+//-----------------------------------------------------------------------//
+// BORDER RADIUS
+//-----------------------------------------------------------------------//
+$border-radius: 0;
+
+//-----------------------------------------------------------------------//
+// SUSSY GRID
+//-----------------------------------------------------------------------//
+$grid-width: 1220;
+$grid-margin-width: 20; //px
+$grid-gutter-width: 35; //px
+$grid-column-width: 67; //px
+
+$susy: ( // main grid
+    columns: 12,
+    container: $grid-width + px,
+    container-position: center,
+    global-box-sizing: border-box,
+    gutters: $grid-gutter-width/$grid-column-width,
+    debug: (
+        color: hotpink,
+        image: hide,
+        output: background,
+        toggle: top right,
+    ),
+);

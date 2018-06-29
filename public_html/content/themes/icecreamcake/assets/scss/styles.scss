@@ -1,0 +1,46 @@
+//-----------------------------------------------------------------------//
+// THEME STYLESHEET
+//
+// Here's where the magic happens! Merge all stylesheets into one file.
+// The compiled version of this file is included in the <head> tag.
+//
+// 1) Sass configuration
+// 2) Sass framework
+// 3) Vendor related stylesheets (i.e. CSS for JS scripts etc)
+// 4) Partial stylesheets
+//-----------------------------------------------------------------------//
+
+//-----------------------------------------------------------------------//
+// FRAMEWORK
+//-----------------------------------------------------------------------//
+@import "setup/extensions/breakpoint";
+@import "setup/extensions/susy";
+@import "setup/variables";
+@import "setup/functions";
+@import "setup/mixins";
+
+//-----------------------------------------------------------------------//
+// COMMON
+//-----------------------------------------------------------------------//
+@import "common/fonts"; // Must be included before any other output
+@import "common/normalize7";
+@import "common/base";
+
+@media print {
+    @import "common/print";
+}
+
+//-----------------------------------------------------------------------//
+// VENDOR RELATED STYLESHEETS
+//-----------------------------------------------------------------------//
+@import "vendor/*";
+
+//-----------------------------------------------------------------------//
+// HELPERS
+//-----------------------------------------------------------------------//
+@import "helpers/*";
+
+//-----------------------------------------------------------------------//
+// COMPONENTS
+//-----------------------------------------------------------------------//
+@import "components/*";

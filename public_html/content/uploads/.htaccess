@@ -1,0 +1,9 @@
+# Secure /uploads/ directory from unwanted file types
+<Files ~ ".*..*">
+Order Allow,Deny
+Deny from all
+</Files>
+<FilesMatch ".(pdf|jpg|jpeg|jpe|gif|png|tif|tiff)$">
+Order Deny,Allow
+Allow from all
+</FilesMatch>

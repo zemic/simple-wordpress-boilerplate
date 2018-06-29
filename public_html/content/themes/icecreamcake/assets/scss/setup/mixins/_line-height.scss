@@ -1,0 +1,9 @@
+//-----------------------------------------------------------------------//
+// LINE HEIGHT
+// This mixin sets the line height in rem's with a px fallback.
+// @include line-height( 12 );
+//-----------------------------------------------------------------------//
+@mixin line-height($heightValue: 12 ){
+    line-height: $heightValue + px; //fallback for old browsers
+    line-height: (0.125 * $heightValue) + rem;
+}

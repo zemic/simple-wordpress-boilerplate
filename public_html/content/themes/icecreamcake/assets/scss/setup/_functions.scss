@@ -1,0 +1,49 @@
+//-----------------------------------------------------------------------//
+// FUNCTION get-color
+// This function extracts color from a Sass map.
+// @function get-color($key, $opacity: 1, $lighten: 0, $map: $site-colors)
+// $color-key: key to be retrieved from the map
+// $color-tone: tone to be retrieved from the map
+// $opacity: A number between 0 and 1. Defaults to 1
+// $lighten: A percentage between -100% and 100%. Defaults to 0 (negative value darkens)
+// $color-map: the map that our $color-key will be pulled from. Defaults to $site-colors
+//
+// Examples:
+// .container {
+//     background: get-color( 'primary', 'base', -10%, 1 ); // get primary base color and darken 10% opacity 1.
+//     color:      get-color( 'primary', 'light', 20%, 0.5 ); // get primary base color and lighten 20% opacity 0.5.
+//     border:     1px solid get-color( 'white' ); // get white color
+// }
+//-----------------------------------------------------------------------//
+@function get-color( $color-key, $color-tone: 'base', $lighten: 0, $opacity: 1, $color-map: $site-colors ) {
+    $value: map-get( map-get( $color-map, $color-key ), $color-tone );
+    $value: rgba($value, $opacity);
+    $value: call(if($lighten >= 0, lighten, darken), $value, abs($lighten));
+    @return $value;
+}
+
+@function get-zindex( $index-key, $index-ref, $index-map: $z-index ) {
+    $value: map-get( map-get( $index-map, $index-key ), $index-ref );
+    @return $value;
+}
+
+// FONT-SIZE + LINE-HEIGHT FUNCTIONS
+// These functions return the font-size or line-height depending on the font-family list.
+// To avoid duplication these functions call the fontset-feature function above.
+@function fontset-family($family) {
+    $result: map-get($family, stack);
+    @return unquote($result);
+}
+
+@function _fontset-feature($feature, $family-map:$font-default, $set: 'base'){
+    $result: map-get(map-get($family-map, $set), $feature);
+    @return ($result * 1px);
+}
+
+@function calc-font-size($set, $family-map:$font-default) {
+    @return _fontset-feature(font-size, $family-map, $set);
+}
+
+@function calc-line-height($set, $family:$font-default) {
+    @return _fontset-feature(line-height, $family,  $set);
+}

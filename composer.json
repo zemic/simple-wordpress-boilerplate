@@ -1,0 +1,30 @@
+{
+    "name": "zemic/simple-wordpress-boilerplate",
+    "description": "A simple WordPress boilerplate to start projects",
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "type": "project",
+    "require": {
+        "php": ">=7.0",
+        "composer/installers": "^1.0",
+        "johnpbloch/wordpress": "4.*"
+    },
+    "require-dev": {
+      "squizlabs/php_codesniffer": "^2.5.1"
+    },
+    "config": {
+      "preferred-install": "dist"
+    },
+    "repositories": [
+      {
+        "type": "composer",
+        "url": "https://wpackagist.org"
+      }
+  ],
+  "extra": {
+    "wordpress-install-dir": "public_html/wp",
+    "installer-paths": {
+      "public_html/content/plugins/{$name}/": ["type:wordpress-plugin"]
+    }
+  }
+}

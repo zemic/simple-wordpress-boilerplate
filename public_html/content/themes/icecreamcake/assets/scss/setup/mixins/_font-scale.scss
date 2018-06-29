@@ -1,0 +1,14 @@
+//-----------------------------------------------------------------------//
+// FONT-SCALE
+//
+// Applies the functions above into a mixin so that we can set font-size and line-height at the same time.
+// If there is a font-family set there
+// Example: @include font-scale(small, $font-verdana);
+//-----------------------------------------------------------------------//
+@mixin font-scale ($font-size, $family-map:$font-default, $line-height:$font-size) {
+    font-size: calc-font-size($font-size, $family-map);
+    line-height: calc-line-height($line-height, $family);
+    @if $family != $font-default {
+        font-family: fontset-family($family);
+    }
+}

@@ -1,0 +1,21 @@
+//-----------------------------------------------------------------------//
+// LINK
+// To call the link mixin from above we would add this line.
+//-----------------------------------------------------------------------//
+@mixin link ($link, $visit, $hover, $active) {
+    a {
+        color: $link;
+
+        &:visited {
+            color: $visit;
+        }
+
+        &:hover {
+            color: $hover;
+        }
+
+        &:active {
+            color: $active;
+        }
+    }
+}

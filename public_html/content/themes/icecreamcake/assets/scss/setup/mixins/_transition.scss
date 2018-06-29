@@ -1,0 +1,7 @@
+@mixin transition($transition-property: $default-transition-property, $transition-duration: $default-transition-duration, $transition-timing-function: $default-transition-timing-function, $transition-delay: $default-transition-delay ) {
+    -webkit-transition: #{$transition-property} #{$transition-duration} #{$transition-timing-function} #{$transition-delay};
+    -moz-transition: #{$transition-property} #{$transition-duration} #{$transition-timing-function} #{$transition-delay};
+    -ms-transition: #{$transition-property} #{$transition-duration} #{$transition-timing-function} #{$transition-delay};
+    -o-transition: #{$transition-property} #{$transition-duration} #{$transition-timing-function} #{$transition-delay};
+    transition: #{$transition-property} #{$transition-duration} #{$transition-timing-function} #{$transition-delay};
+}

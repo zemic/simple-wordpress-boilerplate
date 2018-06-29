@@ -1,0 +1,25 @@
+//-----------------------------------------------------------------------//
+// VERTICAL ALIGN
+//
+// This is a slightly modified version of a  CSS-Tricks method  for vertically
+// centering elements with a dynamic size. Works beautifully and doesn’t
+// require an extra, non-semantic HTML element.
+//
+// This method can cause elements to be blurry due to the element being
+// placed on a “half pixel”. A solution for this is to set its parent
+// element to preserve-3d. Like following:
+//
+// .parent-element {
+//    -webkit-transform-style: preserve-3d;
+//    -moz-transform-style: preserve-3d;
+//    transform-style: preserve-3d;
+//  }
+//
+//-----------------------------------------------------------------------//
+@mixin vertical-align {
+    position: relative;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}

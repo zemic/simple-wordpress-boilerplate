@@ -1,0 +1,13 @@
+//-----------------------------------------------------------------------//
+// CENTER ALIGN
+//-----------------------------------------------------------------------//
+@mixin center-align($position: relative) {
+    bottom: 50%;
+    left: 0;
+    position: $position;
+    right: 0;
+    top: 45%;
+    -webkit-transform: translate3d(0, 0, 0);
+    -ms-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+}
