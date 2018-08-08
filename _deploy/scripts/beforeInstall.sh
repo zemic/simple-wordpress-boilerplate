@@ -10,7 +10,7 @@ DEPLOY_DIRECTORY=$(cd `dirname $0` && pwd)
 
 if [ ! -z "$DOMAIN_NAME" ]; then
 
-    # APPLICATION LOAD BALANCER
+    # IN-PLACE/ROLLING UPDATE USING APPLICATION LOAD BALANCER
     if [ ${ELB_TYPE} == "alb" ]; then
 
         # UPDATE ALB COMMON_FUNCTIONS.SH
@@ -23,7 +23,7 @@ if [ ! -z "$DOMAIN_NAME" ]; then
         . ${DEPLOY_DIRECTORY}/alb/deregister_from_elb.sh
     fi
 
-    # CLASSIC LOAD BALANCER
+    # IN-PLACE/ROLLING UPDATE USING CLASSIC LOAD BALANCER
     if [ ${ELB_TYPE} == "classic" ]; then
 
         # UPDATE CLASSIC LOAD BALANCER COMMON_FUNCTIONS.SH

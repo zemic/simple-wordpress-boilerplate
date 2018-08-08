@@ -43,7 +43,7 @@ if [ ! -z "$DOMAIN_NAME" ]; then
     # START APACHE
     systemctl start httpd.service
 
-    # APPLICATION LOAD BALANCER
+    # IN-PLACE/ROLLING UPDATE USING APPLICATION LOAD BALANCER
     if [ ${ELB_TYPE} == "alb" ]; then
 
         # REGISTER EC2 INSTANCES WITH ELB TARGET GROUPS
@@ -51,7 +51,7 @@ if [ ! -z "$DOMAIN_NAME" ]; then
         . ${DEPLOY_DIRECTORY}/alb/register_with_elb.sh
     fi
 
-    # ELB CLASSIC
+    # IN-PLACE/ROLLING UPDATE USING ELB CLASSIC
     if [ ${ELB_TYPE} == "classic" ]; then
 
         # REGISTER EC2 INSTANCES WITH ELB TARGET GROUPS
