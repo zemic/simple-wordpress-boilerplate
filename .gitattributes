@@ -126,6 +126,11 @@ TODO         text
 *.config       text
 .browserslistrc    text
 .editorconfig  text
+.env           text
+.env.dev       text
+.env.live      text
+.env.staging   text
+.env.testing   text
 .gitattributes text
 .gitconfig     text
 .htaccess      text
